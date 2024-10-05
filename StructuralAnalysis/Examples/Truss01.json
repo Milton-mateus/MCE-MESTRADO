@@ -1,0 +1,29 @@
+{
+    "typeStructure": "Truss2D",
+    "nodes": [
+        {"id": 1, "coordenadas": [0, 0]},
+        {"id": 2, "coordenadas": [5, 0]},
+        {"id": 3, "coordenadas": [5, 5]},
+        {"id": 4, "coordenadas": [0, 5]}
+    ],
+    "elements": [
+        {"id": 1, "NI": 1, "NF": 2, "material": 1, "sectionProp": 1},
+        {"id": 2, "NI": 2, "NF": 3, "material": 1, "sectionProp": 1},
+        {"id": 3, "NI": 3, "NF": 4, "material": 1, "sectionProp": 1},
+        {"id": 4, "NI": 4, "NF": 1, "material": 1, "sectionProp": 1},
+        {"id": 5, "NI": 4, "NF": 2, "material": 1, "sectionProp": 1}
+    ],
+    "material": [
+        {"id": 1, "modulo_elasticidade": 205e6}
+    ],
+    "sectionProp": [
+        {"id": 1, "area": 1e-2}
+    ],
+    "restrictions": [
+        {"no": 1, "restricoes": [1, 1], "types": ["fix","fix"]},
+        {"no": 2, "restricoes": [0, 1], "types": ["fix","fix"]}
+    ],
+    "nodalLoads": [
+        {"no": 3, "forcas": [-50, -100]}
+    ]
+}
