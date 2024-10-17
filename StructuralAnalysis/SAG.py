@@ -8,6 +8,7 @@ from PrintStructure import plotStructure
 class Truss2D:
     def __init__(self, data):
         self.type = "Truss2D"
+        self.nMinRest = 3
         self.GLpE = 2
         self.defineNodes(data["nodes"])
         self.defineNodalLoads(data["nodalLoads"])
@@ -15,6 +16,15 @@ class Truss2D:
         self.defineMaterials(data["material"])
         self.defineSections(data["sectionProp"])
         self.defineElements(data["elements"])
+
+    def verifyRestrictions(self):
+        """
+        Verifica a estaticidade da estrutura
+        """
+        if self.nRestrictions >= self.nMinRest:
+            return True
+        else:
+            return False
 
     def defineNodes(self, Nodes):
         """
